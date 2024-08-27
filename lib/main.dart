@@ -4,12 +4,14 @@ import 'package:notification_android_ios/firebase_api.dart';
 import 'package:notification_android_ios/firebase_options.dart';
 import 'package:notification_android_ios/pages/home_page.dart';
 import 'package:notification_android_ios/pages/notification_page.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 final navigationKey = GlobalKey<NavigatorState>();
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   await FirebaseApi().initializeNotifications();
   runApp(const MyApp());
 }
